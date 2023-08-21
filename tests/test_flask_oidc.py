@@ -1,4 +1,5 @@
 import time
+from importlib import metadata
 from unittest import mock
 from urllib.parse import parse_qs, urlparse, urlsplit
 
@@ -6,6 +7,7 @@ import flask
 import pytest
 import responses
 from authlib.common.urls import url_decode
+from packaging.version import Version, parse as parse_version
 from werkzeug.exceptions import Unauthorized
 
 from flask_oidc import OpenIDConnect
@@ -73,7 +75,10 @@ def test_ext_logout(test_app, client, dummy_token):
         flask.session["oidc_auth_profile"] = {"nickname": "dummy"}
         with pytest.warns():
             resp = test_app.oidc_ext.logout(return_to="/somewhere_else")
-    assert resp.location == "/logout?next=/somewhere_else"
+    expected = "/logout?next=/somewhere_else"
+    if parse_version(metadata.version("werkzeug")) < Version("2.3"):
+        expected = "/logout?next=%2Fsomewhere_else"
+    assert resp.location == expected
 
 
 def test_expired_token(client, dummy_token):
