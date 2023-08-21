@@ -2,8 +2,8 @@
 Changelog
 =========
 
-Unreleased (<DATE>)
-===================
+2.0.0 (2023-08-21)
+==================
 
 This is a major release that rebases the Flask OIDC API on `Authlib`_
 
