@@ -13,9 +13,6 @@ flask-oidc
    :target: http://flask-oidc.readthedocs.io/en/latest/?badge=latest
    :alt: Documentation Status
 
-.. image:: https://img.shields.io/travis/puiterwijk/flask-oidc.svg?style=flat
-  :target: https://travis-ci.org/puiterwijk/flask-oidc
-
 This library should work with any standards compliant OpenID Connect provider.
 
 It has been tested with:
@@ -26,4 +23,4 @@ It has been tested with:
 Project status
 ==============
 
-This project is in active development.
+This project is in active development (again).
