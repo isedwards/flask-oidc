@@ -4,11 +4,11 @@ flask-oidc
 `OpenID Connect <https://openid.net/connect/>`_ support for `Flask <http://flask.pocoo.org/>`_.
 
 .. image:: https://img.shields.io/pypi/v/flask-oidc.svg?style=flat
-  :target: https://pypi.python.org/pypi/flask-oidc
+   :target: https://pypi.python.org/pypi/flask-oidc
    :alt: PyPI version
 
 .. image:: https://img.shields.io/pypi/dm/flask-oidc.svg?style=flat
-  :target: https://pypi.python.org/pypi/flask-oidc
+   :target: https://pypi.python.org/pypi/flask-oidc
    :alt: Downloads per month
 
 .. image:: https://readthedocs.org/projects/flask-oidc/badge/?version=latest
