@@ -250,7 +250,7 @@ class OpenIDConnect:
         .. versionadded:: 1.0
         """
         warnings.warn(
-            "The user_getfield method is deprecated, all the user info is in"
+            "The user_getfield method is deprecated, all the user info is in "
             "session['oidc_auth_profile']",
             DeprecationWarning,
             stacklevel=2,

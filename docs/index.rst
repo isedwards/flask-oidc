@@ -174,10 +174,11 @@ Settings reference
 This is a list of all settings supported in the current release.
 
   OIDC_SCOPES
-    A python list with the scopes that should be requested. This impacts the
-    information available in the UserInfo field and what the token can be used
-    for. Please check your identity provider's documentation for valid values.
-    Defaults to ['openid', 'email'].
+    A string containing the scopes that should be requested separated by spaces.
+    This impacts the information available in the ``oidc_auth_profile`` session
+    value and what the token can be used for. Please check your identity
+    provider's documentation for valid values.
+    Defaults to ``"openid email"``.
 
   OIDC_CLOCK_SKEW
     Number of seconds of clock skew allowed when checking the "don't use
