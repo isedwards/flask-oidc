@@ -20,7 +20,8 @@ This is a bugfix release.
 Fixed
 -----
 
-- Don't crash if the ``client_secrets`` don't contain a ``userinfo_uri`` key.
+- Don't crash if the ``client_secrets`` don't contain a ``userinfo_uri`` key
+  (:issue:`13`).
 - Handle older versions of Werkzeug.
 
 
@@ -42,7 +43,8 @@ Removed
 - Configuration option ``OIDC_VALID_ISSUERS``
 - Configuration option ``OIDC_REQUIRE_VERIFIED_EMAIL``
 - Configuration option ``OIDC_RESOURCE_CHECK_AUD``
-- The following parameters of the :class:`~flask_oidc.OpenIDConnect` constructor have been removed:
+- The following parameters of the :class:`~flask_oidc.OpenIDConnect`
+  constructor have been removed:
   - ``credentials_store``
   - ``http``
   - ``time``
