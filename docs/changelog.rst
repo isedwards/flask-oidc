@@ -2,13 +2,16 @@
 Changelog
 =========
 
-UNRELEASED
-==========
+2.0.1 (2023-08-22)
+==================
+
+This is a bugfix release.
 
 Fixed
 -----
 
 - Don't crash if the ``client_secrets`` don't contain a ``userinfo_uri`` key.
+- Handle older versions of Werkzeug.
 
 
 2.0.0 (2023-08-21)
