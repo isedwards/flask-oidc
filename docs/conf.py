@@ -32,6 +32,7 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.doctest",
     "sphinx.ext.todo",
+    "sphinx.ext.extlinks",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -295,6 +296,15 @@ texinfo_documents = [
 
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 # texinfo_no_detailmenu = False
+
+
+# -- Extension configuration -------------------------------------------------
+
+extlinks = {
+    "commit": ("https://github.com/fedora-infra/flask-oidc/commit/%s", "%s"),
+    "issue": ("https://github.com/fedora-infra/flask-oidc/issues/%s", "#%s"),
+    "pr": ("https://github.com/fedora-infra/flask-oidc/pull/%s", "PR#%s"),
+}
 
 
 def run_apidoc(_):
