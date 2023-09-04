@@ -51,6 +51,7 @@ Removed
 - Configuration option ``OIDC_RESOURCE_CHECK_AUD``
 - The following parameters of the :class:`~flask_oidc.OpenIDConnect`
   constructor have been removed:
+
   - ``credentials_store``
   - ``http``
   - ``time``
@@ -67,10 +68,12 @@ Deprecated
 - Configuration option ``OVERWRITE_REDIRECT_URI``
 - The following configuration options have been removed because the
   functionality is now handled by Authlib:
+
   - ``OIDC_ID_TOKEN_COOKIE_NAME``
   - ``OIDC_ID_TOKEN_COOKIE_PATH``
   - ``OIDC_ID_TOKEN_COOKIE_TTL``
   - ``OIDC_COOKIE_SECURE``
+
 - The :meth:`~flask_oidc.OpenIDConnect.user_getinfo` and
   :meth:`~flask_oidc.OpenIDConnect.user_getfield` methods are deprecated,
   you'll find all the user information in the session:
