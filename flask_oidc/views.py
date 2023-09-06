@@ -89,6 +89,7 @@ def logout_view():
     """
     session.pop("oidc_auth_token", None)
     session.pop("oidc_auth_profile", None)
+    g.oidc_id_token = None
     reason = request.args.get("reason")
     if reason == "expired":
         flash("Your session expired, please reconnect.")
