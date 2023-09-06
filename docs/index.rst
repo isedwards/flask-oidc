@@ -78,20 +78,27 @@ Also, if you have implemented an API that should be able to accept tokens
 issued by the OpenID Connect provider, just decorate those API functions with
 :meth:`~flask_oidc.OpenIDConnect.accept_token`::
 
+    from authlib.integrations.flask_oauth2 import current_token
+
     @app.route('/api')
     @oidc.accept_token()
     def my_api():
-        token = g.authlib_server_oauth2_token
-        return json.dumps(f'Welcome {token["sub"]}')
+        return json.dumps(f'Welcome {current_token["sub"]}')
+
+The current token is available via the ``current_token`` proxy object in
+``authlib.integrations.flask_oauth2``.
+Information about the user can be retrieved using the ``userinfo()`` method,
+providing the current token.
 
 The :meth:`~flask_oidc.OpenIDConnect.accept_token` decorator also accepts a
 list of required scopes that the token must provide::
 
+    from authlib.integrations.flask_oauth2 import current_token
+
     @app.route('/api')
     @oidc.accept_token(scopes=['profile'])
     def my_api():
-        token = g.authlib_server_oauth2_token
-        profile = g._oidc_auth.userinfo(token=token)
+        profile = g._oidc_auth.userinfo(token=current_token)
         return json.dumps(f'Welcome {profile["fullname"]}')
 
 This decorator is an Authlib `ResourceProtector`_, you'll find more
