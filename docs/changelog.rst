@@ -3,17 +3,22 @@ Changelog
 =========
 
 
-UNRELEASED
-==========
+2.1.0 (2023-10-09)
+==================
 
+Fixed
+-----
+- Handle token expiration when there is no ``refresh_token`` or no token URL
+  (:issue:`39`)
+
+Changed
+-------
 - Restore the ``OVERWRITE_REDIRECT_URI`` configuration option as
   ``OIDC_OVERWRITE_REDIRECT_URI``.
 - The ``redirect_uri`` that is generated and sent to the ID provider is no longer
   forced to HTTPS, because the `the OIDC spec`_ is actually only a strong
   recommendation (:issue:`35`). You can use ``OVERWRITE_REDIRECT_URI`` if you want
   to force it to HTTPS (or any other URL).
-- Handle token expiration when there is no ``refresh_token`` or no token URL
-  (:issue:`39`)
 
 
 2.0.3 (2023-09-08)
