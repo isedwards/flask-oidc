@@ -90,6 +90,22 @@ def test_ext_logout(test_app, client, dummy_token):
     assert resp.location == expected
 
 
+def test_logout_redirect_loop(make_test_app, dummy_token, mocked_responses):
+    app = make_test_app({"APPLICATION_ROOT": "/subpath"})
+    client = app.test_client()
+    with client:
+        # Set an expired token
+        mocked_responses.post(
+            "https://test/openidc/Token", json={"error": "dummy"}, status=401
+        )
+        dummy_token["expires_at"] = int(time.time())
+        _set_token(client, dummy_token)
+
+        resp = client.get("/logout?reason=expired")
+        assert resp.location == "http://localhost/subpath/"
+        assert "oidc_auth_token" not in flask.session
+
+
 def test_expired_token(client, dummy_token, mocked_responses):
     new_token = dummy_token.copy()
     new_token["access_token"] = "this-is-new"

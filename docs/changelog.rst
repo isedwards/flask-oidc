@@ -3,6 +3,16 @@ Changelog
 =========
 
 
+UNRELEASED
+==========
+
+Fixed
+-----
+
+- Avoid redirect loops when the app is not mounted on the webserver root
+  (:issue:`52`)
+
+
 2.1.0 (2023-10-09)
 ==================
 

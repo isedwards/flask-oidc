@@ -202,7 +202,7 @@ class OpenIDConnect:
             token = session.get("oidc_auth_token")
             if not token:
                 return
-            if request.path == url_for("oidc_auth.logout"):
+            if f"{request.root_path}{request.path}" == url_for("oidc_auth.logout"):
                 return  # Avoid redirect loop
             token = OAuth2Token.from_dict(token)
             try:
