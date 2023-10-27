@@ -11,6 +11,7 @@
 # serve to show the default.
 
 import os
+import re
 import sys
 from importlib import metadata
 
@@ -32,7 +33,9 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.doctest",
     "sphinx.ext.todo",
-    "sphinx.ext.extlinks",
+    "sphinx.ext.viewcode",
+    "sphinx.ext.napoleon",
+    "myst_parser",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -40,8 +43,7 @@ templates_path = ["_templates"]
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
-# source_suffix = ['.rst', '.md']
-source_suffix = ".rst"
+source_suffix = [".rst", ".md"]
 
 # The encoding of source files.
 # source_encoding = 'utf-8-sig'
@@ -300,11 +302,10 @@ texinfo_documents = [
 
 # -- Extension configuration -------------------------------------------------
 
-extlinks = {
-    "commit": ("https://github.com/fedora-infra/flask-oidc/commit/%s", "%s"),
-    "issue": ("https://github.com/fedora-infra/flask-oidc/issues/%s", "#%s"),
-    "pr": ("https://github.com/fedora-infra/flask-oidc/pull/%s", "PR#%s"),
-}
+myst_enable_extensions = [
+    "colon_fence",
+]
+myst_heading_anchors = 3
 
 
 def run_apidoc(_):
@@ -323,5 +324,19 @@ def run_apidoc(_):
     )
 
 
+github_url = "https://github.com/fedora-infra/flask-oidc"
+
+
+def changelog_github_links(app, docname, source):
+    if docname != "changelog":
+        return
+    github_issue_re = re.compile(r"#(\d+)")
+    for docnr, doc in enumerate(source):
+        source[docnr] = github_issue_re.sub(
+            r"[#\1](" + github_url + r"/issues/\1)", doc
+        )
+
+
 def setup(app):
     app.connect("builder-inited", run_apidoc)
+    app.connect("source-read", changelog_github_links)
