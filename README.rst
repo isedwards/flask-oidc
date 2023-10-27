@@ -15,8 +15,8 @@ flask-oidc
    :target: http://flask-oidc.readthedocs.io/en/latest/?badge=latest
    :alt: Documentation Status
 
-.. image:: https://github.com/fedora-infra/flask-oidc/actions/workflows/ci.yml/badge.svg?branch=develop
-   :target: https://github.com/fedora-infra/flask-oidc/actions/workflows/ci.yml?query=branch%3Adevelop
+.. image:: https://github.com/fedora-infra/flask-oidc/actions/workflows/main.yml/badge.svg?branch=develop
+   :target: https://github.com/fedora-infra/flask-oidc/actions/workflows/main.yml?query=branch%3Adevelop
    :alt: Tests Status
 
 
