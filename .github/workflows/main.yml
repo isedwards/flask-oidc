@@ -13,11 +13,23 @@ jobs:
       - name: Install dependencies
         run: |
           dnf install -y git python-devel python-tox
-          pip install --upgrade poetry>=1.2.0
+          pip install --upgrade "poetry>=1.2.0"
       - name: Mark the directory as safe for git
         run: git config --global --add safe.directory $PWD
       - name: Run Tests
         run: tox
+
+      - name: Extract changelog section
+        id: extract-changelog
+        uses: sean0x42/markdown-extract@v2
+        with:
+          file: docs/changelog.md
+          pattern: '[[:digit:].]+\s+\([[:digit:]-]+\)'
+          no-print-matched-heading: true
+      - name: Show the changelog
+        env:
+          CHANGELOG: ${{'{{'}} steps.extract-changelog.outputs.markdown {{'}}'}}
+        run: echo "$CHANGELOG"
 
   # https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/
   build:

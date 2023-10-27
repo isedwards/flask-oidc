@@ -1,9 +1,6 @@
-# SPDX-FileCopyrightText: Contributors to the Fedora Project
-#
-# SPDX-License-Identifier: MIT
-
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
+
 repos:
   # Generic hooks
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -19,6 +16,7 @@ repos:
     rev: 23.10.1
     hooks:
       - id: black
+        args: ["--diff"]
 
   # Ruff
   - repo: https://github.com/charliermarsh/ruff-pre-commit
@@ -26,3 +24,10 @@ repos:
     rev: v0.1.1
     hooks:
       - id: ruff
+        args: ["--diff"]
+
+  # License headers
+  - repo: https://github.com/fsfe/reuse-tool
+    rev: v2.1.0
+    hooks:
+      - id: reuse

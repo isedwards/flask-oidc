@@ -10,7 +10,7 @@ authors = [
 ]
 homepage = "https://github.com/fedora-infra/flask-oidc"
 repository = "https://github.com/fedora-infra/flask-oidc"
-license = "BSD"
+license = "BSD-2-Clause"
 classifiers = [
     "Environment :: Web Environment",
     "Framework :: Flask",
@@ -49,6 +49,7 @@ sphinxcontrib-httpdomain = "^1.8.1"
 flask-sphinx-themes = "^1.0.2"
 packaging = "^23.1"
 myst-parser = "^2.0.0"
+reuse = "^2.1.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
