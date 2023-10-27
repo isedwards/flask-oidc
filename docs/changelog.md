@@ -7,6 +7,13 @@
 
 - Avoid redirect loops when the app is not mounted on the webserver root (#52)
 
+### Changed
+- Use REUSE for licences
+- Convert the changelog to markdown
+
+### Added
+- Publish to PyPI and Github when a tag is pushed
+
 
 ## 2.1.0 (2023-10-09)
 
