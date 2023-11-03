@@ -30,6 +30,7 @@ include = [
     { path = "tox.ini", format = "sdist" },
     { path = "tests/*", format = "sdist" },
     { path = "docs/*", format = "sdist" },
+    { path = "LICENSES/*", format = "sdist" },
 ]
 
 [tool.poetry.dependencies]
